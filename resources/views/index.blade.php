@@ -1,4 +1,5 @@
-<x-app>
+@extends('layouts.app')
+@section('content')
     <style>
         #carouselCaption{
             top: 50%; 
@@ -224,4 +225,4 @@
         </div>
     </div>
 </div>
-</x-app>
+@endsection

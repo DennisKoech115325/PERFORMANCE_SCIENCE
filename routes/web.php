@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\StatisticsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +20,8 @@ Route::get('/', function () {
     return view('index');
 });
 
-/*  Route::get('/search', function (Request $request){
-    dd($request->name. ' ' . $request->city);
- }); */
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('statistics', StatisticsController::class)->middleware('auth');
+Route::resource('users', UsersController::class);
