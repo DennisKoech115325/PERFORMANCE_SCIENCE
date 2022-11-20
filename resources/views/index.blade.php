@@ -21,57 +21,26 @@
             </ul>
     
             <div class="carousel-inner carousel-fade carousel-dark">
+                    
                 <div class="carousel-item active">
-                    <img src="{{ asset('images/student3.jpg') }}" alt="" style="width: 100%;">
-                    <div class="carousel-caption" id="carouselCaption">
-                        <h1 class="display-4 font-weight-bold p-3" style="color: #F5DEB3;  text-shadow: 2px 2px black;">
-                            STRATHMORE COMMUNITIES
-                        </h1>
-                        <h3 class="font-weight-bold p-4" style="font-size: 1.7rem;color: #D2B48C; text-shadow: 2px 2px black;">
-                            Be more, Be Strathmore... and join a Community
-                        </h3>
-                        <a class="btn btn-outline-info btn-lg font-weight-bold m-3" href="#">
-                            View Communities
-                        </a>
-                        <a class="btn btn-outline-success btn-lg font-weight-bold m-3" href="#">
-                            Get Started
-                        </a>
-                    </div>
-                </div>
-    
-                <div class="carousel-item">
-                    <img src="{{ asset('images/student2.jpg') }}" alt="" style="width: 100%;">
+                    <img src="{{ asset('images/hsoa626c.bmp') }}" alt="" style="width: 100%;">
                     <div class="carousel-caption" id="carouselCaption">
                         <h1 class="display-4 font-weight-bold p-3" style="color: #D2B48C;  text-shadow: 2px 2px black;">
-                            STRATHMORE COMMUNITIES
+                            Performance Science
                         </h1>
                         <h3 class="font-weight-bold p-4" style="font-size: 1.7rem; color: #D2B48C; text-shadow: 2px 2px black;">
-                            View and Interact with Posts in Different Communities
+                            Gauge and Predict Teacher Performance.
                         </h3>
-                        <a class="btn btn-outline-info btn-lg font-weight-bold m-3" href="#">
-                            View Communities
-                        </a>
-                        <a class="btn btn-outline-success btn-lg font-weight-bold m-3" href="#">
-                            Get Started
-                        </a>
-                    </div>
-                </div>
-    
-                <div class="carousel-item">
-                    <img src="{{ asset('images/student1.jpg') }}" alt="" style="width: 100%">
-                    <div class="carousel-caption" id="carouselCaption">
-                        <h1 class="display-4 font-weight-bold" style="color: #FFDEAD; text-shadow: 2px 2px black;">
-                            STRATHMORE COMMUNITIES
-                        </h1>
-                        <h3 class="font-weight-bold p-4" style="font-size: 1.7rem; color: #D2B48C; text-shadow: 2px 2px black;">
-                            Join a Community and Get Updates
-                        </h3>
-                        <a class="btn btn-outline-info btn-lg font-weight-bold m-3" href="#">
-                            View Communities
-                        </a>
-                        <a class="btn btn-outline-success btn-lg font-weight-bold m-3" href="#">
-                            Get Started
-                        </a>
+                        @guest
+                            <a class="btn btn-outline-info btn-lg font-weight-bold m-3" href="{{ route('register') }}">
+                                {{ __('Register') }}
+                            </a>
+                            <a class="btn btn-outline-success btn-lg font-weight-bold m-3" href="{{ route('login') }}">
+                                {{ __('Login') }}
+                            </a>
+                        @else
+                            <a href="users/{{Auth::user()->id}}" class="btn btn-outline-success btn-lg font-weight-bold m-3">Dashboard</a>
+                        @endguest
                     </div>
                 </div>
             </div>
@@ -87,11 +56,11 @@
             </a>
         </div>
         <!-- Jumbotron -->
-        <div class="container-fluid">
+        {{-- <div class="container-fluid">
             <div class="row jumbotron">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 col-xl-12">
                     <p class="lead text-left p-4" style="font-size: 1.3rem">
-                        <span class="font-weight-bold" style="font-size: 1.8rem;">Strathmore Communities</span> <br>
+                        <span class="font-weight-bold" style="font-size: 1.8rem;">Performance Science</span> <br>
                         A Content Management System with the purpose of reducing information overload in the Strathmore University Emails
                     </p>
                 </div>
@@ -99,22 +68,22 @@
     
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
                     <a class="p-3" href="#">
-                        <button type="button" class="btn btn-outline-secondary btn-lg font-weight-bold">View Communities</button>
+                        <button type="button" class="btn btn-outline-secondary btn-lg font-weight-bold">Register</button>
                     </a>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Welcome Section -->
         <div class="container-fluid p-4 m-4">
             <div class="row welcome text-center">
                 <div class="col-12">
-                    <h1 class="h1">Welcome to Strathmore Communities</h1>
+                    <h1 class="h1">Welcome to Performance Science</h1>
                 </div>
                 <hr class="light">
     
                 <div class="col-12">
                     <p class="lead" style="font-size: 1.1rem;">
-                        Strathmore Communities is a content management system that is aimed at reducing information overload in the student emails and providing students with the ability to follow through on categories which they find useful to themselves.
+                        Performance Science is a performance tracking and prediction website, allowing users to gauge teacher performance within schools using various statistics as a benchmark for teacher performance.
                     </p>
                 </div>
             </div>
@@ -126,14 +95,14 @@
                 <div class="col-xs-12 col-sm-6 col-md-4 p-2">
                     <i class="fas fa-university"></i>
                     <h3 class="p-2"> Exclusive </h3>
-                    <p class="lead" style="font-size: 1rem;">Strathmore Communities is exclusive to Strathmore University</p>
+                    <p class="lead" style="font-size: 1rem;">Performance Science is exclusive to Strathmore University</p>
                 </div>
                 <br>
                 <div class="col-xs-12 col-sm-6 col-md-4 p-2">
                     <br><br><br><br>
                     <i class="fas fa-users"></i>
                     <h3 class="p-2">Multiple Users</h3>
-                    <p class="lead" style="font-size: 1rem;">Strathmore Communities can seemlessly serve a wide range of users at the same time</p>
+                    <p class="lead" style="font-size: 1rem;">Performance Science can seemlessly serve a wide range of users at the same time</p>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4 p-2">
                     <i class="fas fa-user-shield"></i>
@@ -147,15 +116,15 @@
     
         <!-- POSTS section -->
         <div class="container-fluid">
-            <div class="row text-center welcome">
+            {{-- <div class="row text-center welcome">
                 <div class="col-12">
                     <h1 class="h1 p-4 font-weight-bold">Available Communities</h1>
                 </div>            
-            </div>
+            </div> --}}
             <hr class="m-4">     
             
             <!-- Cards -->
-            <div class="container-fluid" style="background-image: url({{ asset('images/community2.jpg') }}); background-size: cover; background-repeat: no-repeat; padding: 5rem;" >
+            {{-- <div class="container-fluid" style="background-image: url({{ asset('images/community2.jpg') }}); background-size: cover; background-repeat: no-repeat; padding: 5rem;" >
                 <div class="row">
                     <div class="col-sm-12">
                         <div id="inam" class="carousel slide" data-ride="carousel">
@@ -221,7 +190,7 @@
                         </div>
                     </div>
                 </div>                
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

@@ -176,7 +176,16 @@
                     </button>  
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
+                        <nav class="navbar navbar-light justify-content-between">
+                            {!!Form::open(['action'=> ['UsersController@index'],'class'=>'form-inline','method'=>'GET','enctype'=>'multipart/formdata']) !!}
+                                {{Form::text('search','',['class'=>'form-control mr-sm-2','placeholder'=>'Search'])}}
+                                {{Form::submit('Search',['class'=>'btn btn-outline-success my-2 my-sm-0'])}}
+                            {!!Form::close()!!}
+                            {{-- <form class="form-inline">
+                              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            </form> --}}
+                        </nav>
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">

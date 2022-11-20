@@ -1,8 +1,10 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\PredictionController;
 use App\Http\Controllers\StatisticsController;
 
 /*
@@ -23,5 +25,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('statistics', StatisticsController::class)->middleware('auth');
+Route::resource('statistics', StatisticsController::class);
 Route::resource('users', UsersController::class);
+// Route::get('prediction/initiator={var1}&receiver={var2}',[PredictionController::class,'prediction']);
+// Route::get('/prediction/',function(Request $request){});
+Route::get('/prediction',[PredictionController::class,'prediction']);
