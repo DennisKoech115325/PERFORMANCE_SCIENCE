@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('statistics', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('reason');
             $table->integer('traveltime');
             $table->integer('studytime');
             $table->integer('failures');
-            $table->string('school_sup');
             $table->string('internet');
             $table->integer('freetime');
             $table->integer('goout');
@@ -27,7 +27,6 @@ return new class extends Migration
             $table->integer('absences');
             $table->integer('G1');
             $table->integer('G2');
-            $table->integer('G3');
             $table->softDeletes();
             $table->timestamps();
         });

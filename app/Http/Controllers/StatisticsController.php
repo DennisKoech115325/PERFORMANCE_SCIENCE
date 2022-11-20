@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Statistics;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StatisticsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth',['except'=>['index','show']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +19,8 @@ class StatisticsController extends Controller
      */
     public function index()
     {
-        //
+        $statistics = Statistics::orderBy('created_at','desc')->simplePaginate(10);
+        return view('statistics.index')->with('statistics',$statistics);
     }
 
     /**
@@ -25,6 +31,7 @@ class StatisticsController extends Controller
     public function create()
     {
         //
+        return view('statistics.create');
     }
 
     /**
@@ -35,7 +42,26 @@ class StatisticsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'absences'=>'required|min:0|max:93',
+            'G1'=>'required|min:0|max:20',
+            'G2'=>'required|min:0|max:20',
+        ]);
+        $statistic = new Statistics();
+        $statistic->reason = $request->input('reason');
+        $statistic->internet = $request->input('internet');
+        $statistic->user_id = auth()->user()->id;
+        $statistic->traveltime = $request->input('traveltime');
+        $statistic->studytime = $request->input('studytime');
+        $statistic->freetime = $request->input('freetime');
+        $statistic->failures = $request->input('failures');
+        $statistic->goout = $request->input('goout');
+        $statistic->health = $request->input('health');
+        $statistic->absences = $request->input('absences');
+        $statistic->G1 = $request->input('G1');
+        $statistic->G2 = $request->input('G2');
+        $statistic->save();
+        return back()->with('success','Statistic Created');
     }
 
     /**
