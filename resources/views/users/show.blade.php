@@ -181,17 +181,25 @@
                             {{-- <h3>My Posts</h3> --}}
                             <br>
                                 @if (count($statistics)>0)
-                                    {{-- @if (Auth::user()->id==$user->id)
+                                    @if (Auth::user()->id==$user->id)
                                         <div class="row justify-content-center">
                                             <a href="/statistics/create" class="font-weight-bold btn btn-outline-success mb-5" style="width: 50%; box-shadow: 2px 2px 2px #2E8B57">
                                                 Add Statistics
                                             </a>
                                         </div>
-                                    @endif --}}
+                                    @endif
                                     @foreach ($statistics as $item)
                                         <div class="card text-center p-2 mb-4">
                                             <div class="card-body">
-                                                <a href="/statistics/{{$item->id}}"><h5 class="card-title">{{$item->title}}</h5></a>
+                                                <a href="/statistics/{{$item->id}}">
+                                                    <h5 class="card-title">
+                                                        @if ($item->title == Null)
+                                                            {{$user->name}}'s statistic created on {{$item->created_at->format('Y-m-d')}}.
+                                                        @else
+                                                            {{$item->title}}
+                                                        @endif
+                                                    </h5>
+                                                </a>
                                             </div>
                                             <div class="card-footer text-muted">
                                                 Created: {{$item->created_at->diffForHumans()}}
