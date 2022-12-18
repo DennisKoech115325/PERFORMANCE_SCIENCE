@@ -14,6 +14,21 @@
         @include('inc.messages')
         <div class="row justify-content-center">
             {!!Form::open(['action'=>'StatisticsController@store', 'method'=>'POST','enctype'=>'multipart/formdata','onsubmit'=>"return confirm('Do you really want to submit the form?');"])!!}
+            <div class="form-group-row">
+                <div class="row justify-content-center text-secondary font-weight-bold p-3 h4">
+                    {{Form::label('title','Title')}}
+                </div>
+                <div class="form-group-row">
+                    <div class="row justify-content-center">
+                    {{Form::text('title','',['class'=>'form-control','placeholder'=>'Title'])}}
+                    </div>
+                </div>
+            <div class="form-group-row">
+                <div class="row justify-content-center text-secondary font-weight-bold p-3 h4">
+                    {{Form::label('about','About')}}
+                </div>
+                {{Form::text('about','',['class'=>'form-control','placeholder'=>'About'])}}
+            </div>
             <div class="form-group-row ">
                 <div class="row justify-content-center text-secondary font-weight-bold p-3 h4">
                     {{Form::label('reason','Reason')}}
@@ -22,7 +37,7 @@
                     <div id="explanation" style = "display:none">
                         <p>The reason for choosing the school, the choices include:</p>
                         <ul>
-                            <li>Course: Prefernce to the coures(s) offered.</li>
+                            <li>Course: Preference to the coures(s) offered.</li>
                             <li>Home: The location of the school is closer to you home.</li>
                             <li>Reputation: The reputation of the school is why this school was picked.</li>
                             <li>Other: Another reason led to picking this school.</li>
@@ -139,7 +154,7 @@
                 </div>
                 <div class="row justify-content-center">
                     <div id="explanation" style="display: none">
-                      <p>Your current health status, ranging fromm very poor to very good.</p>
+                      <p>Your current health status, ranging from very poor to very good.</p>
                     </div>
                 </div>
                  {{Form::select('health',[

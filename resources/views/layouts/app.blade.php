@@ -192,9 +192,9 @@
                                 {{-- <a class="nav-link" id="link" aria-current="page" href="{{ route('home') }}">Home</a> --}}
                             </li>
 
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link" id="link" href="/categories">Communities</a>
-                            </li>
+                            </li> --}}
 
                             <li class="nav-item">
                                 <a class="nav-link" id="link" href="{{ url('other') }}">Related Links</a>
